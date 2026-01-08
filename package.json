@@ -1,7 +1,7 @@
 {
   "name": "vin-decoder",
   "version": "1.0.0",
-  "description": "Indian Vehicle VIN Decoder Web App",
+  "description": "Vehicle VIN Decoder Web App",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
