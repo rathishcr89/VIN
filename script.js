@@ -32,19 +32,21 @@ const yearCodes = {
 
 const engineSeriesCodes = {
     'J': 'J Series Engine',
-    'U': 'U Series Engine'
+    'U': 'U Series Engine',
+    'P': 'Parallel Twin Engine'
 };
 
 const engineSizeCodes = {
     '3': '350cc Engine',
     '4': '400cc Engine',
-    '6': '650cc Engine'
+    '7': '650cc Engine'
 };
 
 const coolingTypeCodes = {
     'A': 'Air Cooled',
     'O': 'Oil Cooled',
-    'L': 'Liquid Cooled'
+    'L': 'Liquid Cooled',
+    'E': 'Air/Oil Cooled'
 };
 
 const gearsCodes = {
