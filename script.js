@@ -123,65 +123,32 @@ function decodeVIN() {
             const yearCode = vin.charAt(9);
             const year = yearCodes[yearCode] || 'Unknown';
             
+            const serial = vin.substring(11, 17);
+            const output = `
+                <p><strong>Country:</strong> ${country}</p>
+                <p><strong>Manufacturer:</strong> ${manufacturer}</p>
+                <p><strong>Engine Series:</strong> ${engineSeries}</p>
+                <p><strong>Engine Size:</strong> ${engineSize}</p>
+                <p><strong>Cooling Type:</strong> ${coolingType}</p>
+                <p><strong>Number of Gears:</strong> ${gears}</p>
+                <p><strong>Fuel Type:</strong> ${fuelType}</p>
+                <p><strong>Year:</strong> ${year}</p>
+                <p><strong>Month:</strong> ${month}</p>
+                <p><strong>Plant:</strong> ${plant}</p>
+                <p><strong>Serial:</strong> ${serial}</p>
+            `;
+            document.getElementById('output').innerHTML = output;
+        })
+        .catch(error => {
+            // If API fails, fall back to client-side decoding
+            decodeVINClientSide(vin);
+        });
+}
+            
 function decodeVINClientSide(vin) {
     const country = (vin.substring(0, 2) === 'MA' || vin.substring(0, 2) === 'ME') ? 'India' : 'Unknown';
     const wmi = vin.substring(0, 3);
     const manufacturer = manufacturerCodes[wmi] || 'Unknown';
-    
-    // Plant decoding for Royal Enfield 11th Character
-    let plant;
-    if (manufacturer === 'Royal Enfield') {
-        const plantCodes = {
-            '1': 'Oragadam',
-            '2': 'Vallam Vadagal'
-        };
-        plant = plantCodes[vin.charAt(10)] || 'Unknown';
-    } else {
-        plant = vin.charAt(10);
-    }
-    
-    const vds = vin.substring(3, 9);
-    const model = vds; // Using VDS as model code
-    
-    // Engine Series: 4th character
-    const engineSeries = engineSeriesCodes[vin.charAt(3)] || 'Unknown';
-    
-    // Engine Size: 5th character
-    const engineSize = engineSizeCodes[vin.charAt(4)] || 'Unknown';
-    
-    // Cooling Type: 6th character
-    const coolingType = coolingTypeCodes[vin.charAt(5)] || 'Unknown';
-    
-    // Number of Gears: 7th character
-    const gears = gearsCodes[vin.charAt(6)] || 'Unknown';
-    
-    // Fuel Type: 8th character
-    const fuelType = fuelTypeCodes[vin.charAt(7)] || 'Unknown';
-    
-    // Month: 9th character
-    const month = monthCodes[vin.charAt(8)] || 'Unknown';
-    
-    const yearCode = vin.charAt(9);
-    const year = yearCodes[yearCode] || 'Unknown';
-    
-    const serial = vin.substring(11, 17);
-    const output = `
-        <p><strong>Country:</strong> ${country}</p>
-        <p><strong>Manufacturer:</strong> ${manufacturer}</p>
-        <p><strong>Engine Series:</strong> ${engineSeries}</p>
-        <p><strong>Engine Size:</strong> ${engineSize}</p>
-        <p><strong>Cooling Type:</strong> ${coolingType}</p>
-        <p><strong>Number of Gears:</strong> ${gears}</p>
-        <p><strong>Fuel Type:</strong> ${fuelType}</p>
-        <p><strong>Year:</strong> ${year}</p>
-        <p><strong>Month:</strong> ${month}</p>
-        <p><strong>Plant:</strong> ${plant}</p>
-        <p><strong>Serial:</strong> ${serial}</p>
-    `;
-    document.getElementById('output').innerHTML = output;
-}
-
-function decodeVINClientSide(vin) {
     
     // Plant decoding for Royal Enfield 11th Character
     let plant;

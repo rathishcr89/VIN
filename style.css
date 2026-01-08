@@ -1,6 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #3768c2;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
 }
 .container {
-    background-color: white;
+    background-color: rgb(242, 243, 247);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
