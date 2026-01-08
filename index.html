@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Vehicle VIN Decoder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Royal Enfield VIN/Chase number decoder</h1>
+    <p>Enter a 17-character Vehicle Identification Number (VIN) to decode country, manufacturer, engine details, year, month, plant, and serial number. Powered by Node.js backend.</p>
+        <input type="text" id="vinInput" placeholder="Enter VIN (e.g., MAT12345678901234)" maxlength="17">
+        <button onclick="decodeVIN()">Decode VIN</button>
+        <div id="output"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
