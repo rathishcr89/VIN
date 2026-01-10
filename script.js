@@ -59,8 +59,8 @@ const gearsCodes = {
 };
 
 const fuelTypeCodes = {
-    'F': 'Petrol/Diesel',
-    'G': 'Gas'
+    'F': 'Fuel Injection',
+    'C': 'Carburetor'
 };
 
 const monthCodes = {
